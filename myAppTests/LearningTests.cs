@@ -10,7 +10,7 @@ namespace myAppTests
     public class LearningTests
     {
         [TestMethod]
-        public void TestRegexpMatch()
+        public void Learning_RegexpMatch()
         {
             string text = "2017-11-30 06:55:17.322 T5264 w_store_main - I1 identity: SODPRO21";
             Regex regex = new Regex(@"\d{4}-\d{2}-\d{2}", RegexOptions.IgnoreCase);
@@ -19,7 +19,7 @@ namespace myAppTests
         }
 
         [TestMethod]
-        public void TestStringBuilder()
+        public void Learning_StringBuilder()
         {
             StringBuilder stringBuilder = new StringBuilder();
 

@@ -15,7 +15,7 @@ namespace myAppTests
             "Log entry 5",
         };
 
-        private List<string> ISsLogEntries = new List<string>() {
+        public List<string> ISsLogEntries = new List<string>() {
             "2017-11-30 06:55:17.322 T5264 w_store_main - I1 identity: SODPRO21",
             "2017-11-30 06:55:17.323 T5264 w_store_main - I1 Refusing threaded stackstore due to non-image.",
             "2017-11-30 06:55:17.326 T5264 get_reqex_id - I1 Request number: 'SERSOD0000918837', Exam number: 'SERSOD0001171313'",
@@ -48,6 +48,7 @@ namespace myAppTests
             @"2017-11-30 06:55:22.247 T2876 wi/copy_file - I1 Moving image
     from: E:\in_dcm/SODPRO21/1.2.752.24.7.112976771.1221121.6730167.0.20171130064535__1209860375.dcm
     to  : E:/sod2ads1/SERSOD0000918845/SERSOD0001171321/im_3/x0000.dcm",
+            "2017-11-30 06:55:22.247 T2876 wi/log_info3 - I1 ef_id: 23073423 and if_id: 162270629",
         };
 
         private Timer timer;
