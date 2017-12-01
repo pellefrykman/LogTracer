@@ -6,6 +6,8 @@ using System.Threading;
 using Microsoft.Extensions.Configuration;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using myApp;
+using System.Text.RegularExpressions;
+using System.Text;
 
 namespace myAppTests
 {
@@ -76,6 +78,33 @@ namespace myAppTests
                     }
                     Assert.AreEqual(5, i);
                 }
+            }
+        }
+
+        [TestMethod]
+        public void TestMethod3()
+        {
+            string filePath = Path.Combine(tempPath, "logfile.txt");
+
+            File.Create(filePath).Close();
+
+            using (StreamReader reader = new StreamReader(File.Open(filePath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite)))
+            {
+                LogReader logReader = new LogReader(reader);
+                logReader.StartReading();
+
+
+                using (StreamWriter writer = new StreamWriter(File.Open(filePath, FileMode.Open, FileAccess.Write, FileShare.Read)))
+                {
+                    LogStreamProducer producer = new LogStreamProducer();
+                    producer.StartISsLogEntriesToStream(writer);
+
+                    Thread.Sleep(5000);
+                }
+
+                logReader.StopReading();
+
+                Assert.AreEqual(24, logReader.Entries.Count);
             }
         }
     }
