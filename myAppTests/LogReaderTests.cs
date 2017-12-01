@@ -67,7 +67,10 @@ namespace myAppTests
                     }
                 }
 
-                Thread.Sleep(1000);
+                while (logReader.MoreEntriesAvailable())
+                {
+                    Thread.Sleep(200);
+                }
 
                 logReader.StopReading();
                 numberOfEntriesRead = logReader.Entries.Count;

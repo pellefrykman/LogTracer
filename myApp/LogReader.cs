@@ -30,6 +30,11 @@ namespace myApp
             readerThread.Join();
         }
 
+        public bool MoreEntriesAvailable()
+        {
+            return !reader.EndOfStream || !string.IsNullOrEmpty(nextLine);
+        }
+
         private void SetupThread() {
             readerThread = new Thread(() => {
                 while (!shouldStop)
@@ -42,11 +47,6 @@ namespace myApp
                     Thread.Sleep(500);
                 }
             });
-        }
-
-        private bool MoreEntriesAvailable()
-        {
-            return !reader.EndOfStream || !string.IsNullOrEmpty(nextLine);
         }
 
         private Regex multiLineRegex = new Regex(@"\d{4}-\d{2}-\d{2}", RegexOptions.IgnoreCase);
