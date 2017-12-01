@@ -58,7 +58,7 @@ namespace myAppTests
                 using (StreamWriter writer = new StreamWriter(File.Open(filePath, FileMode.Open, FileAccess.Write, FileShare.Read)))
                 {
                     LogStreamProducer producer = new LogStreamProducer();
-                    numberOfEntriesExpected = producer.ISsLogEntries.Count;
+                    numberOfEntriesExpected = TestData.ISsLogEntries.Count;
                     producer.StartISsLogEntriesToStream(writer);
 
                     while (producer.IsWriting())

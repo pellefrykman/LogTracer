@@ -19,6 +19,20 @@ namespace myAppTests
         }
 
         [TestMethod]
+        public void Learning_RegexpCapturing()
+        {
+            string text = "    to  : E:/sod2ads1/SERSOD0000918837/SERSOD0001171313/im_7/x0000.dcm";
+            string pattern = "to  : (?<value>.*)";
+            Regex regex = new Regex(pattern);
+
+            string value = regex.Match(text).Value;
+            string capture = regex.Match(text).Groups["value"].Value;
+
+            Assert.AreEqual("to  : E:/sod2ads1/SERSOD0000918837/SERSOD0001171313/im_7/x0000.dcm", value);
+            Assert.AreEqual("E:/sod2ads1/SERSOD0000918837/SERSOD0001171313/im_7/x0000.dcm", capture);
+        }
+
+        [TestMethod]
         public void Learning_StringBuilder()
         {
             StringBuilder stringBuilder = new StringBuilder();
