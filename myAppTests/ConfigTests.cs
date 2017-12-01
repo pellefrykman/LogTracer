@@ -18,7 +18,6 @@ namespace myAppTests
         public void Config_ParseConfigStream_CorrectConfigSet()
         {
             // Arrange
-            Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("myAppTests.config.json");
 
             // Act
             Config config = Config.Parse("config.json");
