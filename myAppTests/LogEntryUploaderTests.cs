@@ -19,7 +19,7 @@ namespace myAppTests
             };
 
             // Act
-            LogEntryUploader.Upload(logEntryInfo);
+            LogEntryUploader.UploadToCosmos(logEntryInfo);
 
             // Assert
         }
