@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization.Json;
 using System.Text;
 
 namespace myApp
@@ -12,7 +13,8 @@ namespace myApp
 
         public string ConvertToJson()
         {
-            return "";
+            DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(LogEntryInformation));
+            return EventKey;
         }
     }
 }
